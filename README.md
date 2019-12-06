@@ -92,7 +92,7 @@ concat(list, []) === list
 
 We gain flexibility and clarity if operations like `length`, `sum`, etc. "pass through" or "work with" `concat`. For example, if we write functions which work with `concat` in this way, we don't have to worry about corner cases.
 
-Here's what I mean:
+We "want" the following to be true for any two lists `leftList` and `rightList`:
 
 ```javascript
 length(concat(leftList, rightList))  === length(leftList) + length(rightList)
@@ -100,9 +100,11 @@ sum(concat(leftList, rightList))     === sum(leftList) + sum(rightList)
 product(concat(leftList, rightList)) === product(leftList) * product(rightList)
 ```
 
-If we want this property to hold, certain choices are forced on us. For example, since `list === concat([], list)`, we ahve:
+If we want this property to hold for *any* two lists then they have to hold for the empty list `[]`, too. But the empty list interacts with `concat` in a special way (described above). This forces certain decisions on us.
 
-```javacript
+For example, since `list === concat([], list)` for *any* list, we have:
+
+```javascript
 product(list) === product(concat([], list)) === product([]) * product(list)
 ```
 
