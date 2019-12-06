@@ -95,8 +95,8 @@ We gain flexibility and clarity if operations like `length`, `sum`, etc. "pass t
 Here's what I mean:
 
 ```javascript
-length(concat(leftList, rightList)) === length(leftList) + length(rightList)
-sum(concat(leftList, rightList)) === sum(leftList) + sum(rightList)
+length(concat(leftList, rightList))  === length(leftList) + length(rightList)
+sum(concat(leftList, rightList))     === sum(leftList) + sum(rightList)
 product(concat(leftList, rightList)) === product(leftList) * product(rightList)
 ```
 
