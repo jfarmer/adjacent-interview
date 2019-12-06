@@ -52,7 +52,7 @@ Going straight through something rather than jumping within it.
 
 In the live session we'll focus on the code, but recursion is *everywhere*. One of the core beliefs in contemporary linguistics is that recursion a defining feature of human language, for example. Where there's self-reference, there's recursion.
 
-See <README-EDITOR.md> for notes about recursion outside of programming.
+See [README-EDITOR.md](README-EDITOR.md) for notes about recursion outside of programming.
 
 ##### Lists / Arrays
 
@@ -63,22 +63,49 @@ See <README-EDITOR.md> for notes about recursion outside of programming.
 
    The base case when dealing with a list is always the empty list.
    The recursive case: how do you combine `first` and `rest`?
-3. Write some recursive code: [array-recursive.js]
+3. Write some recursive code: [array-recursive.js](array-recursive.js)
 
 To the code.
 
 ##### Human Language
 
-See <README-EDITOR.md>.
+See [README-EDITOR.md](README-EDITOR.md).
 
 ##### Your Computer's Filesystem
 
-See <README-EDITOR.md>.
+See [README-EDITOR.md](README-EDITOR.md).
 
 ##### Algebraic Expressions (like high school algebra)
 
-See <README-EDITOR.md>.
+See [README-EDITOR.md](README-EDITOR.md).
 
 ### Advanced Concepts
 
 Invariants and structure-preserving operations.
+
+The empty list has a special property with respect to `concat`. For any `list`, it has the following special property:
+
+```javascript
+concat([], list) === list
+concat(list, []) === list
+```
+
+We gain flexibility and clarity if operations like `length`, `sum`, etc. "pass through" or "work with" `concat`. For example, if we write functions which work with `concat` in this way, we don't have to worry about corner cases.
+
+Here's what I mean:
+
+```javascript
+length(concat(leftList, rightList)) === length(leftList) + length(rightList)
+sum(concat(leftList, rightList)) === sum(leftList) + sum(rightList)
+product(concat(leftList, rightList)) === product(leftList) * product(rightList)
+```
+
+If we want this property to hold, certain choices are forced on us. For example, since `list === concat([], list)`, we ahve:
+
+```javacript
+product(list) === product(concat([], list)) === product([]) * product(list)
+```
+
+which means that `product([])` *must* evaluate to `1` if we want to ensure `product` and `concat` play nice together.
+
+Thinking in this way is one way to answer the question "What should the base case return?" It's not the only way, but some some operations like `largest` and `smallest` it can be hard to motivate a specific return value. Under this perspective, negative infinity is the *only* viable choice for `largest([])`, though.
