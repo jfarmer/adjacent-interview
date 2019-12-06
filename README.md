@@ -63,7 +63,7 @@ See <README-EDITOR.md> for notes about recursion outside of programming.
 
    The base case when dealing with a list is always the empty list.
    The recursive case: how do you combine `first` and `rest`?
-3. Write some recursive code: <array-recursive.js>
+3. Write some recursive code: [array-recursive.js]
 
 To the code.
 
