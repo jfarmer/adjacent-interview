@@ -65,7 +65,7 @@ See [README-EDITOR.md](README-EDITOR.md) for notes about recursion outside of pr
    The recursive case: how do you combine `first` and `rest`?
 3. Write some recursive code: [array-recursive.js](array-recursive.js)
 
-To the code.
+To the code! If you complete everything in both [array-student.js](array-student.js) and [array-recursive.js](array-recursive.js), you'll hit at the heart of what recursion is all about.
 
 ##### Human Language
 
@@ -81,7 +81,7 @@ See [README-EDITOR.md](README-EDITOR.md).
 
 ### Advanced Concepts
 
-Invariants and structure-preserving operations.
+Invariants and structure-preserving operations. Don't worry about following this section; it introduces some high-level concepts. Scan through for exposure, but don't worry about understanding.
 
 The empty list has a special property with respect to `concat`. For any `list`, it has the following special property:
 
